@@ -17,11 +17,18 @@ class MainActivity : AppCompatActivity() {
         val calculateButton: Button = findViewById(R.id.button)
         val mins: EditText = findViewById(R.id.minutes)
         val sec: EditText = findViewById(R.id.seconds)
+        val splitCal: Button = findViewById(R.id.splitCalc)
         calculateButton.setOnClickListener {
             val minute = mins.text.toString().toInt()
             val second = sec.text.toString().toInt()
             val total = 3600 / ((minute * 60) + second).toDouble()
             Toast.makeText(this, total.toString(), Toast.LENGTH_LONG).show()
+        }
+        splitCal.setOnClickListener {
+            val minute = mins.text.toString().toInt()
+            val second = sec.text.toString().toInt()
+            val split = (((minute * 60) + second) / 4).toDouble()
+            Toast.makeText(this, split.toString(), Toast.LENGTH_LONG).show()
         }
     }
 }
